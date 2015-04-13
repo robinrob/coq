@@ -1,0 +1,1 @@
+Goal forall A:Prop, A -> A.​
