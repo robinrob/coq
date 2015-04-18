@@ -1,0 +1,16 @@
+Require Import Arith.
+Require Import ZArith.
+Require Import Bool.
+
+Check fun n:nat => n%nat.
+
+Check fun n p : nat =>
+(let diff := n - p in
+ let square := diff * diff in
+ square * (square + n))%nat.
+
+Check fun i : nat => let sum := plus i (S i) in mult i (mult sum sum).
+
+Definition f1 := fun i : nat => let sum := plus i (S i) in mult i (mult sum sum).
+
+Eval compute in f1 5.
