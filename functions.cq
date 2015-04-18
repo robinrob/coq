@@ -1,6 +1,9 @@
+#!/usr/bin/env ocaml
+
 Require Import Arith.
 Require Import ZArith.
 Require Import Bool.
+Require Import ExtrOcamlIntConv.
 
 Check fun n:nat => n%nat.
 
@@ -11,6 +14,12 @@ Check fun n p : nat =>
 
 Check fun i : nat => let sum := plus i (S i) in mult i (mult sum sum).
 
-Definition f1 := fun i : nat => let sum := plus i (S i) in mult i (mult sum sum).
+Definition f1 := fun i : nat => let sum := plus i (S i) in mult i (mult sum sum). 
 
 Eval compute in f1 5.
+
+Extraction Language Ocaml.
+Recursive Extraction f1.
+Recursive Extraction ExtrOcamlIntConv.int_of_nat.
+Recursive Extraction ExtrOcamlIntConv.nat_of_int.
+Extraction nat.
